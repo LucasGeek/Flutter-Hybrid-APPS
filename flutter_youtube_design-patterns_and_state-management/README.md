@@ -1,2 +1,0 @@
-# flutter_youtube_design-patterns_and_state-management
-FLUTTER DESIGN PATTERNS
