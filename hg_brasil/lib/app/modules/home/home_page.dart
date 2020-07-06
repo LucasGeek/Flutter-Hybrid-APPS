@@ -4,8 +4,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'home_controller.dart';
 
-import '../../app_controller.dart';
-
 class HomePage extends StatefulWidget {
   final String title;
   const HomePage({Key key, this.title = "Home"}) : super(key: key);

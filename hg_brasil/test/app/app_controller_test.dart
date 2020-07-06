@@ -1,8 +1,6 @@
 import 'package:flutter_modular/flutter_modular_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:hg_brasil/hg_brasil/app/app_controller.dart';
-import 'package:hg_brasil/hg_brasil/app/app_module.dart';
+import 'package:hg_brasil/app/app_module.dart';
 
 void main() {
   initModule(AppModule());
