@@ -5,6 +5,7 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.os.CountDownTimer
 import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
@@ -15,7 +16,7 @@ class AppService: Service() {
 
         if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.O) {
 
-            val notificationBuilder=NotificationCompat.Builder(this,"msgs")
+            val notificationBuilder = NotificationCompat.Builder(this,"msgs")
                     .setContentText("Notificação do serviço de segundo plano - Flutter")
                     .setContentTitle("Serviço de segundo plano")
                     .setSmallIcon(R.mipmap.ic_launcher)
@@ -40,18 +41,29 @@ class AppService: Service() {
     }
 
     override fun onBind(intent: Intent?): IBinder? {
-        return null;
+        return null
     }
 
     fun startService() {
-        Thread(Runnable {
-            var item = 0;
+        object: CountDownTimer(50000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                Log.v("OnCalling","" + millisUntilFinished)
 
-            for (item in 0..50) {
-                Log.v("OnCalling","" + item)
-                Thread.sleep(1000)
+                if (millisUntilFinished < 1000) {
+                    var item = 0;
+
+                    for (item in 0..50) {
+                        Log.v("OnCalling","" + item)
+                        Thread.sleep(1000)
+
+                        if(item == 50) {
+                            startService()
+                        }
+                    }
+                }
             }
-        }).start()
 
+            override fun onFinish() {}
+        }.start()
     }
 }

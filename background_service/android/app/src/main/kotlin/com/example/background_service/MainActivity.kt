@@ -3,6 +3,7 @@ package com.example.background_service
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.plugin.common.MethodChannel
 
@@ -14,14 +15,18 @@ class MainActivity: FlutterActivity() {
 
         MethodChannel(flutterEngine!!.dartExecutor.binaryMessenger,"com.example.messages")
                 .setMethodCallHandler { call, result ->
-                    if (call.method == "startService") {
-                        startService()
+                    when (call.method) {
+                        "startService" -> startService()
+                        "stopService" -> stopService()
+                        else -> {
+                            Log.v("OnService","404 Not Found!")
+                        }
                     }
                 }
 
     }
 
-    fun startService() {
+    private fun startService() {
         intent = Intent(this, AppService::class.java)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -31,8 +36,11 @@ class MainActivity: FlutterActivity() {
         }
     }
 
+    private fun stopService() {
+        stopService(intent as Intent)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
-        //stopService(intent as Intent)
     }
 }
