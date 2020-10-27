@@ -18,7 +18,6 @@ class AppWidget extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             navigatorKey: Modular.navigatorKey,
             theme: CupertinoThemeData(
-              brightness: Brightness.dark,
               primaryColor: basePrimaryColorIOS,
               scaffoldBackgroundColor: basePrimaryColorIOS,
             ),

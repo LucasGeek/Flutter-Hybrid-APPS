@@ -8,7 +8,7 @@ class PrincipalController = _PrincipalControllerBase with _$PrincipalController;
 
 abstract class _PrincipalControllerBase with Store {
   @observable
-  String value = "";
+  String value = "0";
 
   @action
   void setVal(String val) {
