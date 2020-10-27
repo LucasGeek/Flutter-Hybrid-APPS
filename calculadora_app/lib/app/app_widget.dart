@@ -6,8 +6,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 const basePrimaryColorIOS = const Color(0xFF000000);
 
-const basePrimaryColorAndroid = const Color(0xFF000000);
-const baseAccentColorAndroid = const Color(0xFFF39C12);
+const basePrimaryColorAndroid = const Color(0xFFF0F1F3);
+const baseAccentColorAndroid = const Color(0xFF0766E1);
 
 class AppWidget extends StatelessWidget {
   @override
@@ -29,9 +29,10 @@ class AppWidget extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             navigatorKey: Modular.navigatorKey,
             theme: ThemeData(
+              scaffoldBackgroundColor: Colors.white,
               brightness: Brightness.dark,
               primarySwatch: MaterialColor(
-                0xFF000000,
+                0xFFF0F1F3,
                 <int, Color>{
                   50: basePrimaryColorAndroid,
                   100: basePrimaryColorAndroid,
