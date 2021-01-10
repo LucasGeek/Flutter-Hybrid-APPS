@@ -1,0 +1,53 @@
+name: climatempo_app
+description: A new Flutter application.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  intl: ^0.16.1
+  flutter_progress_button: ^1.0.0
+  shared_preferences: ^0.5.7+3
+  permission_handler: ^5.0.0+hotfix.8
+  material_design_icons_flutter: ^4.0.5345
+  geolocator: ^5.3.1
+  flutter_custom_dialog: ^1.0.20
+  background_fetch: ^0.5.6
+  moor_flutter: ^3.0.0
+  bot_toast: ^3.0.0
+  connectivity: ^0.4.8+6
+  cached_network_image: ^2.2.0+1
+  location: ^3.0.2
+  dio: ^3.0.9
+  flutter_mobx: ^1.1.0
+  mobx: ^1.2.1
+  flutter_modular: ^1.2.5+1
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  moor_generator: ^3.1.0
+  mockito: ^4.1.1
+  mobx_codegen: ^1.1.0
+  build_runner: ^1.10.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+
+  assets:
+    - assets/img/
+    - assets/weather/
+
+scripts:
+  mobx: flutter pub run build_runner watch --delete-conflicting-outputs
